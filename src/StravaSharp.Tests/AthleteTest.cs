@@ -15,7 +15,7 @@ namespace StravaSharp.Tests
         [Test]
         public async Task GetCurrentAthlete()
         {
-            var athlete = await _client.Athletes.GetCurrent();
+            var athlete = await Client.Athletes.GetCurrent();
             Assert.NotNull(athlete);
             Assert.IsTrue(athlete.FirstName == "Extrava" || athlete.FirstName == "Test");
         }
@@ -23,7 +23,7 @@ namespace StravaSharp.Tests
         [Test]
         public async Task GetAthlete()
         {
-            var athlete = await _client.Athletes.Get((await _client.Athletes.GetCurrent()).Id);
+            var athlete = await Client.Athletes.Get((await Client.Athletes.GetCurrent()).Id);
             Assert.NotNull(athlete);
             Assert.IsTrue( athlete.FirstName == "Extrava" || athlete.FirstName=="Test");
         }

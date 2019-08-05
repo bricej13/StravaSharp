@@ -19,7 +19,7 @@ namespace StravaSharp.Tests
         [Test]
         public async Task GetActivities()
         {
-            var activities = await _client.Activities.GetAthleteActivities();
+            var activities = await Client.Activities.GetAthleteActivities();
             Assert.True(activities.Count > 0);
         }
 
@@ -31,7 +31,7 @@ namespace StravaSharp.Tests
                 Assert.Ignore("Not running tests requiring tokens from Settings");
             }
             const int itemsPerPage = 2;
-            var activities = await _client.Activities.GetAthleteActivities(0, itemsPerPage);
+            var activities = await Client.Activities.GetAthleteActivities(0, itemsPerPage);
             Assert.AreEqual(itemsPerPage, activities.Count);
         }
 
@@ -42,7 +42,7 @@ namespace StravaSharp.Tests
             {
                 Assert.Ignore("Not running tests requiring tokens from Settings");
             }
-            var activities = await _client.Activities.GetAthleteActivities(DateTime.Now, DateTime.Now.AddYears(-10));
+            var activities = await Client.Activities.GetAthleteActivities(DateTime.Now, DateTime.Now.AddYears(-10));
             Assert.True(activities.Count > 0);
         }
 
@@ -53,11 +53,11 @@ namespace StravaSharp.Tests
             {
                 Assert.Ignore("Not running tests requiring tokens from Settings");
             }
-            var activities = await _client.Activities.GetAthleteActivities();
+            var activities = await Client.Activities.GetAthleteActivities();
             Assert.True(activities.Count > 0);
             foreach (var activity in activities)
             {
-                var laps = await _client.Activities.GetLaps(activity.Id);
+                var laps = await Client.Activities.GetLaps(activity.Id);
                 Assert.True(laps.Count > 0);
             }
         }
@@ -69,10 +69,10 @@ namespace StravaSharp.Tests
             {
                 Assert.Ignore("Not running tests requiring tokens from Settings");
             }
-            var activities = await _client.Activities.GetAthleteActivities();
+            var activities = await Client.Activities.GetAthleteActivities();
             Assert.True(activities.Count > 0);
 
-            var streams = await _client.Activities.GetActivityStreams(activities[0].Id, StreamType.HeartRate, StreamType.LatLng);
+            var streams = await Client.Activities.GetActivityStreams(activities[0].Id, StreamType.HeartRate, StreamType.LatLng);
             Assert.NotNull(streams);
             Assert.True(streams.Count > 0);
             foreach (var stream in streams)

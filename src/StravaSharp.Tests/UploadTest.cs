@@ -30,13 +30,13 @@ namespace StravaSharp.Tests
             {
                 Assert.NotNull(stream);
                 // upload the activity (as private)
-                var result = await _client.Activities.Upload(ActivityType.Ride, DataType.Fit, stream, _fileName, null, null, true);
+                var result = await Client.Activities.Upload(ActivityType.Ride, DataType.Fit, stream, _fileName, null, null, true);
                 Assert.IsNotNull(result);
                 Assert.True(string.IsNullOrEmpty(result.Error));
                 // wait till upload has completed
                 while (result.ActivityId == 0 && result.IsReady == false && string.IsNullOrEmpty(result.Error))
                 {
-                    result = await _client.Activities.GetUploadStatus(result.Id);
+                    result = await Client.Activities.GetUploadStatus(result.Id);
                     await Task.Delay(1000);
                 }
                 Assert.True(string.IsNullOrEmpty(result.Error));

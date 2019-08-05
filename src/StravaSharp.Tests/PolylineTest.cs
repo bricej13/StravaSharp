@@ -23,11 +23,11 @@ namespace StravaSharp.Tests
         [Test]
         public async Task DecodeMap()
         {
-            var activities = await _client.Activities.GetAthleteActivities();
+            var activities = await Client.Activities.GetAthleteActivities();
             Assert.True(activities.Count > 0);
             var activity = activities.FirstOrDefault(a => a.Map?.SummaryPolyline != null);
             Assert.NotNull(activity);
-            activity = await _client.Activities.Get(activity.Id);
+            activity = await Client.Activities.Get(activity.Id);
             Assert.NotNull(activity);
             var points = SharpGeo.Google.PolylineEncoder.Decode(activity.Map.SummaryPolyline);
             Assert.NotNull(points);

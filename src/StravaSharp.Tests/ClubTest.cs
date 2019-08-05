@@ -18,7 +18,7 @@ namespace StravaSharp.Tests
         [Test]
         public async Task GetClub()
         {
-            var club = await _client.Clubs.Get(Settings.ClubId);
+            var club = await Client.Clubs.Get(Settings.ClubId);
             Assert.NotNull(club);
             Assert.True(string.IsNullOrEmpty(club.Name) == false);
             Assert.True(string.IsNullOrEmpty(club.Country) == false);
@@ -26,14 +26,14 @@ namespace StravaSharp.Tests
         [Test]
         public async Task GetClubMembers()
         {
-            var members = await _client.Clubs.GetMembers(Settings.ClubId);
+            var members = await Client.Clubs.GetMembers(Settings.ClubId);
             Assert.NotNull(members);
             Assert.True(Settings.GaborTokenUnavailable || members.Count > 0);
         }
         [Test]
         public async Task GetClubAdmins()
         {
-            var admins = await _client.Clubs.GetAdmins(Settings.ClubId);
+            var admins = await Client.Clubs.GetAdmins(Settings.ClubId);
             Assert.NotNull(admins);
             Assert.True(admins.Count > 0);
         }

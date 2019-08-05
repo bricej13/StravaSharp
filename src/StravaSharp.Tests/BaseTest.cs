@@ -14,12 +14,12 @@ namespace StravaSharp.Tests
 {
     public class BaseTest
     {
-        protected IStravaClient _client;
+        protected IStravaClient Client { get; private set; }
 
         [OneTimeSetUp]
         public async Task Setup()
         {
-            _client = await TestHelper.StravaClientFromSettings();
+            Client = await TestHelper.StravaClientFromSettings();
         }
 
     }

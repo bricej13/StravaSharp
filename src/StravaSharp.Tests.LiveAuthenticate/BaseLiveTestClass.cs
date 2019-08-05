@@ -8,6 +8,7 @@ namespace StravaSharp.Tests
     public class BaseLiveTestClass
     {
         private readonly static HttpClient httpClient = new HttpClient();
+
         private async Task<string> GetAccessToken()
         {
             var response = await httpClient.GetAsync("https://stravaapitest.azurewebsites.net/api/GetToken");
