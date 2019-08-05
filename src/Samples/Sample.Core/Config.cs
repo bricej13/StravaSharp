@@ -9,7 +9,7 @@ namespace Sample
         public static string ClientSecret => "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
         public static string RedirectUrl => $"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
 
-        public static StravaClient CreateOAuth2Cient()
+        public static StravaOAuth2Client CreateOAuth2Cient()
         {
             var config = new RestSharp.Portable.OAuth2.Configuration.RuntimeClientConfiguration
             {
@@ -19,7 +19,7 @@ namespace Sample
                 RedirectUri = RedirectUrl,
                 Scope = "write,view_private",
             };
-            return new StravaClient(new Authentication.RequestFactory(), config);
+            return new StravaOAuth2Client(new Authentication.RequestFactory(), config);
         }
     }
 }

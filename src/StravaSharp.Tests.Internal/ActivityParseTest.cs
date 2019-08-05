@@ -20,29 +20,31 @@ namespace StravaSharp.Tests
         public void Parse()
         {
             var serializer = new JsonSerializer() { ObjectCreationHandling = ObjectCreationHandling.Reuse };
-            using (var stream = Assembly.GetAssembly(GetType()).GetManifestResourceStream(_resourceName))
+            using (var stream = Resource.GetStream(_resourceName))
             {
                 var reader = new JsonTextReader(new StreamReader(stream));
                 var result = serializer.Deserialize<Activity>(reader);
                 Assert.NotNull(result);
-                Assert.AreEqual(361720123455 /*6*/, result.UploadId);
+                Assert.True(result.UploadId != 0);
             }
         }
+    }
 
+    [TestFixture]
+    public class ActivityListParseTest
+    {
         [Test]
         public void ParseJson()
         {
             var serializer = new JsonSerializer() { ObjectCreationHandling = ObjectCreationHandling.Reuse };
-            using (var stream = Assembly.GetAssembly(GetType()).GetManifestResourceStream("activities.json"))
+            using (var stream = Resource.GetStream("activities.json"))
             {
                 var reader = new JsonTextReader(new StreamReader(stream));
-                //var result = serializer.Deserialize(reader);
-                var result = serializer.Deserialize<List<ActivitySummary>>(reader);
-                Assert.NotNull(result);
-                Assert.IsNotEmpty(result);
-                Assert.AreEqual(65459843344, result[0].UploadId);
+                var activities = serializer.Deserialize<List<ActivitySummary>>(reader);
+                Assert.NotNull(activities);
+                Assert.IsNotEmpty(activities);
+                Assert.AreEqual(65459843344, activities[0].UploadId);
             }
         }
-
     }
 }

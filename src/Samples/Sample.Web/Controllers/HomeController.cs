@@ -18,7 +18,7 @@ namespace Sample.Web.Controllers
             var viewModel = new HomeViewModel(authenticator.IsAuthenticated);
             if (authenticator.IsAuthenticated)
             {
-                var client = new StravaSharp.Client(authenticator);
+                var client = new StravaSharp.StravaClient(authenticator);
                 var activities = await client.Activities.GetAthleteActivities();
                 foreach (var activity in activities)
                 {
@@ -39,9 +39,9 @@ namespace Sample.Web.Controllers
                 RedirectUri = redirectUrl,
                 Scope = "view_private",
             };
-            var client = new StravaClient(new Authentication.RequestFactory(), config);
+            var oAuth2Client = new StravaOAuth2Client(new Authentication.RequestFactory(), config);
 
-            return new Authenticator(client);
+            return new Authenticator(oAuth2Client);
         }
 
         public async Task<ActionResult> List()

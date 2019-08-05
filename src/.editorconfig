@@ -1,7 +1,7 @@
 ; Top-most EditorConfig file
 root = true
 ; Test
-; 2-column space indentation
+; 4-column space indentation
 [*.cs]
 indent_style = space
 indent_size = 4
@@ -9,3 +9,11 @@ indent_size = 4
 [*.cshtml]
 indent_style = space
 indent_size = 4
+
+# Newline settings
+csharp_new_line_before_open_brace = all
+csharp_new_line_before_else = true
+csharp_new_line_before_catch = true
+csharp_new_line_before_finally = true
+csharp_new_line_before_members_in_object_initializers = true
+csharp_new_line_before_members_in_anonymous_types = true

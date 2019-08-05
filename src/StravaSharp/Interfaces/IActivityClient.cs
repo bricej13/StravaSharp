@@ -21,5 +21,6 @@ namespace StravaSharp
         Task<IReadOnlyList<ActivitySummary>> GetLaps(long activityId);
         Task<UploadStatus> GetUploadStatus(long id);
         Task<UploadStatus> Upload(ActivityType activityType, DataType dataType, System.IO.Stream input, string fileName, string name = null, string description = null, bool @private = false, bool commute = false, string externalId = null);
-    }
+        Task<List<ActivityZone>> GetActivityZones(long activityId);
+   }
 }

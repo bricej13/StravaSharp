@@ -18,12 +18,9 @@ namespace StravaSharp.Tests
     /// </summary>
     class Resource
     {
-        public const string UserInfoJson = "userinfo.json";
-        public const string ActivitiesJson = "activities.json";
-
         public static System.IO.Stream GetStream(string resourceName)
         {
-            var asm = typeof(TestHelper).GetTypeInfo().Assembly;
+            var asm = typeof(Resource).GetTypeInfo().Assembly;
             foreach (var name in asm.GetManifestResourceNames())
             {
                 if (name.Contains(resourceName))

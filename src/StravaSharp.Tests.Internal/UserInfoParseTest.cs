@@ -10,13 +10,13 @@ namespace StravaSharp.Tests
     /// Tests of the <see cref="StravaOAuth2Client"/> class.
     /// </summary>
     [TestFixture]
-    public class StravaClientTest
+    public class UserInfoParseTest
     {
         [Test]
         public void ParseUserInfo()
         {
             var client = new StravaClientForTest(Substitute.For<IRequestFactory>(), Substitute.For<IClientConfiguration>());
-            var userInfo = client.ParseUserInfo(Resource.GetText(Resource.UserInfoJson));
+            var userInfo = client.ParseUserInfo(Resource.GetText("userinfo.json"));
             Assert.NotNull(userInfo);
             Assert.False(string.IsNullOrEmpty(userInfo.FirstName));
             Assert.False(string.IsNullOrEmpty(userInfo.LastName));

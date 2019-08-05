@@ -81,5 +81,25 @@ namespace StravaSharp.Tests
                 Assert.NotNull(stream.Data);
             }
         }
+
+
+        [Test]
+        [Ignore("Premium feature.")]
+        public async Task GetActivityZones()
+        {
+            var client = await TestHelper.StravaClientFromSettings();
+            var activities = await client.Activities.GetAthleteActivities();
+            Assert.True(activities.Count > 0);
+
+            var zones = await client.Activities.GetActivityZones(activities[0].Id);
+            Assert.NotNull(zones);
+            Assert.True(zones.Count > 0);
+            foreach (var zone in zones)
+            {
+                Assert.NotNull(zone);
+                Assert.NotNull(zone.DistributionBuckets);
+            }
+        }
+        
     }
 }

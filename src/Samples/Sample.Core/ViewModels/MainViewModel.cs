@@ -11,9 +11,9 @@ namespace Sample.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {
-        Client _client;
+        IStravaClient _client;
 
-        public MainViewModel(Client client)
+        public MainViewModel(IStravaClient client)
         {
             _client = client ?? throw new ArgumentNullException(nameof(client));
         }

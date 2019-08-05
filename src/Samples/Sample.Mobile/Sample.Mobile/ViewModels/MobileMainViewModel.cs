@@ -10,7 +10,7 @@ namespace Sample.Mobile.ViewModels
     {
         private static readonly Authenticator auth = CreateAuthenticator();
 
-        public MobileMainViewModel():base(new Client(auth))
+        public MobileMainViewModel():base(new StravaClient(auth))
         {
             UpdateIsAuthenticated();
         }

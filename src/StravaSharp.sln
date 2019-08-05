@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27004.2009
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29020.237
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StravaSharp.Tests", "StravaSharp.Tests\StravaSharp.Tests.csproj", "{5E80B020-EA6B-4256-A092-AEBD1FD9BCF7}"
 EndProject
@@ -21,13 +21,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StravaSharp.Tests.Internal", "StravaSharp.Tests.Internal\StravaSharp.Tests.Internal.csproj", "{756EDE81-D5D0-4DF6-A186-1C34338E4A57}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StravaSharp.Tests.LiveAuthenticate", "StravaSharp.Tests.LiveAuthenticate\StravaSharp.Tests.LiveAuthenticate.csproj", "{61F9E4F2-9683-49D5-AAA4-5D0B46A7BC1C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StravaSharp.Tests.LiveAuthenticate", "StravaSharp.Tests.LiveAuthenticate\StravaSharp.Tests.LiveAuthenticate.csproj", "{61F9E4F2-9683-49D5-AAA4-5D0B46A7BC1C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StravaSharp.FakeStrava", "StravaSharp.FakeStrava\StravaSharp.FakeStrava.csproj", "{36A51F7A-07BA-4934-B24B-5B8F34D54C66}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StravaSharp.FakeStrava", "StravaSharp.FakeStrava\StravaSharp.FakeStrava.csproj", "{36A51F7A-07BA-4934-B24B-5B8F34D54C66}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StravaSharp.FakeStrava.Tests", "StravaSharp.FakeStrava.Tests\StravaSharp.FakeStrava.Tests.csproj", "{636C33FD-B579-4187-BD5E-9E4F4E98A0AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StravaSharp.FakeStrava.Tests", "StravaSharp.FakeStrava.Tests\StravaSharp.FakeStrava.Tests.csproj", "{636C33FD-B579-4187-BD5E-9E4F4E98A0AD}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "StravaSharp.Tests.Shared", "StravaSharp.Tests.Shared\StravaSharp.Tests.Shared.shproj", "{87AE71CB-4F2C-4006-85C5-5D3683E3B805}"
 EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		StravaSharp.Tests.Shared\StravaSharp.Tests.Shared.projitems*{5e80b020-ea6b-4256-a092-aebd1fd9bcf7}*SharedItemsImports = 4
+		StravaSharp.Tests.Shared\StravaSharp.Tests.Shared.projitems*{87ae71cb-4f2c-4006-85c5-5d3683e3b805}*SharedItemsImports = 13
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU

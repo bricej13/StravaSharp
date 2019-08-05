@@ -155,5 +155,10 @@ namespace StravaSharp.FakeStrava
         {
             throw new NotImplementedException();
         }
+
+        public Task<List<ActivityZone>> GetActivityZones(long activityId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
